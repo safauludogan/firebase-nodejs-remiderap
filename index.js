@@ -1,26 +1,50 @@
 const express = require("express");
 const cors = require("cors");
-const User = require("./config");
+const fireStore = require("./config/firestore_config");
+const admin = require('./config/config');
 const UserModel = require("./user_model.js");
 const app = express();
 app.use(express.json());
 app.use(cors());
 
+
+app.post('/signup', async (req, res) => {
+
+    const userResponse = await admin.auth().createUser({
+        email: req.body.email,
+        password: req.body.password,
+        emailVerifield: false,
+        disabled: false
+    }).then(function (userRecord) {
+        // A UserRecord representation of the newly created user is returned
+        console.log("Successfully created new user:", userRecord.uid);
+    }).catch(function (error) {
+        console.log("Error creating new user:", {
+            "error": error.errorInfo,
+            "statusCode": error.statusCode
+        },
+            res.status(500).json(error.errorInfo));
+    });
+    res.json(userResponse);
+});
+
+
+
 app.get("/", async (req, res) => {
-    const snapshot = await User.get();
+    const snapshot = await fireStore.get();
     const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
     res.send(list);
 });
 
 app.post("/create", async (req, res) => {
     const data = req.body;
-    const userModel = new UserModel({ name: data['name'], age: data['age'], collage: data['collage'] });
-    //const userModel = new UserModel(data.name, data.age, data.collage);
-    await User.add(userModel);
+    const userModel = new UserModel(data.name, data.age, data.collage);
 
-    //console.log(userModel.name);
+    console.log(userModel.toJSON());
+    const result = await fireStore.add(userModel.toJSON());
 
-    res.send({ msg: "User Added" });
+
+    res.status(200).send({ msg: "User Added" });
 
 });
 
@@ -28,13 +52,13 @@ app.post("/update", async (req, res) => {
     const id = req.body.id;
     delete req.body.id;
     const data = req.body;
-    await User.doc(id).update(data);
+    await fireStore.doc(id).update(data);
     res.send({ msg: "Updated" });
 });
 
 app.post("/delete", async (req, res) => {
     const id = req.body.id;
-    await User.doc(id).delete();
+    await fireStore.doc(id).delete();
     res.send({ msg: "Deleted" });
 });
-app.listen(4000, () => console.log("Up & RUnning *4000"));
+app.listen(4000, () => console.log("Up & Running *4000"));
