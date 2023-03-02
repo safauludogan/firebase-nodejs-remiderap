@@ -7,7 +7,6 @@ exports.signup = async (req, res) => {
             password: "password is required",
         });
     }
-    //await firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password);
     const userResponse = await firebase.auth().createUserWithEmailAndPassword(
         req.body.email,
         req.body.password,
@@ -27,4 +26,15 @@ exports.signup = async (req, res) => {
     });
     res.json(userResponse);
 
+};
+
+exports.signin = async (req, res) => {
+    if (!req.body.email || !req.body.password) {
+        return res.status(422).json({
+            email: "email is required",
+            password: "password is required",
+        });
+    }
+    const response = await firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password);
+    res.json(response);
 };

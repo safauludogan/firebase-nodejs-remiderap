@@ -3,12 +3,12 @@ const router = express.Router();
 
 const {
     signup,
-    //signin,
+    signin,
     //forgetPassword,
 } = require("../controllers/auth");
 
 router.post("/signup", signup);
-/*router.post("/signin", signin);
-router.post("/forget-password", forgetPassword);*/
+router.post("/signin", signin);
+/*router.post("/forget-password", forgetPassword);*/
 
 module.exports = router;
