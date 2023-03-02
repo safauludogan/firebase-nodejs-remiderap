@@ -1,6 +1,6 @@
-const admin = require('./config');
+const firebase = require('./config');
 
-const db = admin.firestore();
-const User = db.collection("Users");
+const db = firebase.firestore();
+const Notes = db.collection("Notes");
 
-module.exports = User;
+module.exports = Notes;

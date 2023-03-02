@@ -1,5 +1,6 @@
 const firebase = require("firebase/compat/app");
 require("firebase/compat/auth");
+require("firebase/compat/firestore");
 var serviceAccount = require("../serviceAccountKey.json");
 const firebaseConfig = {
     apiKey: "AIzaSyCH45w1FIc8u8Yrk--9kMN8F0vR8eCVb8w",
