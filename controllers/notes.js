@@ -30,5 +30,16 @@ exports.updateNote = async (req, res) => {
     const id = req.body.id;
     const data = req.body;
     await firestore.doc(id).update(data);
-    res.status(200).send({ msg: "Not güncellendi" });
+    res.status(200).send({ message: "Not güncellendi" });
+};
+
+exports.deleteNote = async (req, res) => {
+    const id = req.body.id;
+    const result = await firestore.doc(id).delete().then(() => {
+        res.status(200).send({ message: "Not silindi" });
+    }).catch(function (error) {
+        res.status(500).send({ message: "Not silinirken hata oluştu" });
+    });
+    console.log(result);
+
 };

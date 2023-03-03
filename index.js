@@ -20,21 +20,3 @@ app.use("/api", noteRoutes);
 
 const PORT = 4000;
 app.listen(PORT, () => console.log("Up & Running *4000"));
-/*
-
-
-
-
-app.post("/update", async (req, res) => {
-    const id = req.body.id;
-    delete req.body.id;
-    const data = req.body;
-    await fireStore.doc(id).update(data);
-    res.send({ msg: "Updated" });
-});
-
-app.post("/delete", async (req, res) => {
-    const id = req.body.id;
-    await fireStore.doc(id).delete();
-    res.send({ msg: "Deleted" });
-});*/
