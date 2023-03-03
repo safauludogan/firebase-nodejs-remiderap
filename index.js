@@ -24,17 +24,6 @@ app.listen(PORT, () => console.log("Up & Running *4000"));
 
 
 
-app.post("/create", async (req, res) => {
-    const data = req.body;
-    const userModel = new UserModel(data.name, data.age, data.collage);
-
-    console.log(userModel.toJSON());
-    const result = await fireStore.add(userModel.toJSON());
-
-
-    res.status(200).send({ msg: "User Added" });
-
-});
 
 app.post("/update", async (req, res) => {
     const id = req.body.id;

@@ -25,3 +25,10 @@ exports.getNotes = async (req, res) => {
     const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
     res.status(200).send(list);
 };
+
+exports.updateNote = async (req, res) => {
+    const id = req.body.id;
+    const data = req.body;
+    await firestore.doc(id).update(data);
+    res.status(200).send({ msg: "Not güncellendi" });
+};
