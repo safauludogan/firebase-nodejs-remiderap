@@ -1,14 +1,13 @@
-[debug] [2023-03-01T13:05:06.430Z] ----------------------------------------------------------------------
-[debug] [2023-03-01T13:05:06.432Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\monster\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
-[debug] [2023-03-01T13:05:06.432Z] CLI Version:   11.24.0
-[debug] [2023-03-01T13:05:06.432Z] Platform:      win32
-[debug] [2023-03-01T13:05:06.433Z] Node Version:  v18.14.2
-[debug] [2023-03-01T13:05:06.434Z] Time:          Wed Mar 01 2023 16:05:06 GMT+0300 (GMT+03:00)
-[debug] [2023-03-01T13:05:06.434Z] ----------------------------------------------------------------------
+[debug] [2023-03-03T12:01:35.982Z] ----------------------------------------------------------------------
+[debug] [2023-03-03T12:01:35.983Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\monster\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-03-03T12:01:35.984Z] CLI Version:   11.24.0
+[debug] [2023-03-03T12:01:35.984Z] Platform:      win32
+[debug] [2023-03-03T12:01:35.985Z] Node Version:  v18.14.2
+[debug] [2023-03-03T12:01:35.986Z] Time:          Fri Mar 03 2023 15:01:35 GMT+0300 (GMT+03:00)
+[debug] [2023-03-03T12:01:35.986Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2023-03-01T13:05:06.445Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2023-03-01T13:05:06.511Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2023-03-01T13:05:06.512Z] > authorizing via signed-in user (suludogan1@gmail.com)
+[debug] [2023-03-03T12:01:36.056Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-03T12:01:36.057Z] > authorizing via signed-in user (suludogan1@gmail.com)
 [info] 
      ######## #### ########  ######## ########     ###     ######  ########
      ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
@@ -20,5 +19,7 @@ You're about to initialize a Firebase project in this directory:
 
   C:\Users\monster\Desktop\my_projects\firebase-nodejs-remiderap
 
-[debug] [2023-03-01T13:05:06.951Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2023-03-01T13:05:06.952Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
