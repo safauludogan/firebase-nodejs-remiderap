@@ -22,11 +22,7 @@ const PORT = 4000;
 app.listen(PORT, () => console.log("Up & Running *4000"));
 /*
 
-app.get("/", async (req, res) => {
-    const snapshot = await fireStore.get();
-    const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-    res.send(list);
-});
+
 
 app.post("/create", async (req, res) => {
     const data = req.body;

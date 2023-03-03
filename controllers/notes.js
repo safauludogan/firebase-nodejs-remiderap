@@ -18,4 +18,10 @@ exports.createNote = async (req, res) => {
         }).catch(function (error) {
             new ErrorHandling().getResponse(error, res);
         });
-}; 
+};
+
+exports.getNotes = async (req, res) => {
+    const snapshot = await firestore.get();
+    const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    res.status(200).send(list);
+};
